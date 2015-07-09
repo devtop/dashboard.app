@@ -4,6 +4,10 @@
 
   server.use(express.static( __dirname + "/public"))
 
+  server.get('/logfile/highlights.json', function (req, res) {
+    console.log('requested logfile/highlights')
+    res.json({}) 
+  })
 
   server.listen(3005)
 })(this)

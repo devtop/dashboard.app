@@ -1,1 +1,37 @@
-Dashboard app
+<!doctype html>
+<title>Yet Another Dashboard</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<div  ng-app="dashboardApp" class="container">
+  <h1>Yet Another Dashboard</h1>
+  <!-- Nav tabs -->
+   <ul class="nav nav-tabs" role="tablist">
+     <li role="presentation" class="active"><a href="#logfile" aria-controls="logfile" role="tab" data-toggle="tab">Logfile</a></li>
+     <li role="presentation"><a href="#rss_feed" aria-controls="rss_feed" role="tab" data-toggle="tab">RSS-Feed</a></li>
+     <li role="presentation"><a href="#json_feed" aria-controls="json_feed" role="tab" data-toggle="tab">JSON-Feed</a></li>
+   </ul>
+
+   <!-- Tab panes -->
+   <div class="tab-content">
+     <div role="tabpanel" class="tab-pane active" id="logfile">
+       <div  ng-controller="LogfileCtrl" class="container">
+         Some Content
+       </div>
+     </div>
+     <div role="tabpanel" class="tab-pane" id="rss_feed">RSS-Feed</div>
+     <div role="tabpanel" class="tab-pane" id="json_feed">JSON-Feed</div>
+   </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="/controllers/controller.js"></script>

@@ -5,15 +5,23 @@ Yet another little dashboard
 ### done
 * count calls per domains
 * count calls per file
-### open
 * show domain highlights
 * show file highlights
+### open
 * Updating logfile at the right moment
 
 ## RSSfeed reader
 ### done
+* consume feed
+* show feed
+* order by date desc
 ### open
+* beautify date
 
 ## JSONfeed reader
 ### done
+* proxy feed to avoid cross domain policy
+* consume feed
+* show feed
 ### open
+* oder by date desc

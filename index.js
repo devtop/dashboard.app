@@ -23,6 +23,7 @@
     })
   })
 
+  // Proxy to avoid cross domain policy
   server.get('/jsonfeed.json', function (req, res) {
     var request = require('request')
     var url = 'http://rexxars.com/playground/testfeed/'

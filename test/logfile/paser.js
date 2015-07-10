@@ -26,6 +26,14 @@ describe('Parser ', function(){
         done()
       })
     })
+
+    it('provided domains are descendly order by count', function(done){
+      parser.hosts(function(hosts){
+        for	(var index = 1; index < hosts.length; index++)
+          expect(hosts[index].count).to.be.at.most(hosts[index-1].count)
+        done()
+      })
+    })
   })
   describe('files ', function(){
 
@@ -46,6 +54,13 @@ describe('Parser ', function(){
       parser.files(function(files){
         var element = files.pop()
         expect(element).to.have.all.keys('file', 'count')
+        done()
+      })
+    })
+    it('provided files are descendly order by count', function(done){
+      parser.files(function(files){
+        for	(var index = 1; index < files.length; index++)
+          expect(files[index].count).to.be.at.most(files[index-1].count)
         done()
       })
     })

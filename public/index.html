@@ -25,10 +25,10 @@
              <th>Domain</th>
              <th>Count</th>
            </tr>
-           <tr>
-             <td>{domain}</td>
-             <td>{count}</td>
-           </td>
+           <tr ng-repeat="stat in domainstats">
+             <td>{{stat.domain}}</td>
+             <td>{{stat.count}}</td>
+           </tr>
          </table>
        </div>
      </div>

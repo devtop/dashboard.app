@@ -48,10 +48,31 @@ function JsonfeedCtrl($scope, $http) {
 
   var loadFeed = function(url) {
     $http.get(url).success(function (res) {
+      var monthNames = new Array("Januar", "Februar", "Mars",
+        "April", "May", "Juni", "Juli", "August", "September",
+        "Oktober", "November", "December");
       console.log("I got the jsonfeed data I requested");
+
+      var month;
+      var numberDate;
+      for (var index=0; index < res.length; index++) {
+        for (month=1; month <= 12; month++) {
+          numberDate = res[index].date.replace(' '+monthNames[month-1]+' ', '.'+month+'.');
+          res[index].dateObj = new Date(numberDate+' '+ res[index].time);
+        }
+      }
       $scope.feeds = res;
+      $scope.feeds.sort(feedCompareDateDesc)
     });
   };
+
+  var feedCompareDateDesc = function(a,b) {
+    if (a.dateObj < b.dateObj)
+      return 1;
+    if (a.dateObj > b.dateObj)
+      return -1;
+    return 0;
+  }
   loadFeed(feedUrl);
 }
 

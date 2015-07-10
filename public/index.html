@@ -30,6 +30,16 @@
              <td>{{stat.count}}</td>
            </tr>
          </table>
+         <table>
+           <tr>
+             <th>File</th>
+             <th>Count</th>
+           </tr>
+           <tr ng-repeat="stat in filestats">
+             <td>{{stat.file}}</td>
+             <td>{{stat.count}}</td>
+           </tr>
+         </table>
        </div>
      </div>
      <div role="tabpanel" class="tab-pane" id="rss_feed">RSS-Feed</div>

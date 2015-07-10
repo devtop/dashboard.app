@@ -18,7 +18,9 @@
 
   server.get('/logfile/filestats.json', function (req, res) {
     console.log('requested logfile/domainstats')
-    res.json({})
+    parser.files(function(result) {
+      res.json(result)
+    })
   })
 
   server.listen(3005)

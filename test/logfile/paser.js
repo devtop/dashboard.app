@@ -20,4 +20,21 @@ describe('Parser ', function(){
       })
     })
   })
+  describe('files ', function(){
+
+    it('provides an valid Object', function(done){
+      parser.files(function(files){
+        Object.keys(files)
+        done()
+      })
+    })
+
+    it('has at least one element', function(done){
+      parser.files(function(files){
+        var element = files[Object.keys(files)[0]]
+        expect(element).not.to.be.undefined
+        done()
+      })
+    })
+  })
 })

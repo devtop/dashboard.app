@@ -11,13 +11,21 @@ describe('GET /', function(){
   })
 })
 
-describe('GET /logfile/highlights.json', function(){
+describe('GET /logfile/domainstats.json', function(){
   it('respond with json', function(done){
     request(server)
-      .get('/logfile/highlights.json')
+      .get('/logfile/domainstats.json')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
   })
-
+})
+describe('GET /logfile/filestats.json', function(){
+  it('respond with json', function(done){
+    request(server)
+      .get('/logfile/filestats.json')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, done)
+  })
 })

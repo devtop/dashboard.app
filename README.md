@@ -3,9 +3,12 @@ Yet another little dashboard
 
 ## Logfile analysis
 ### done
-Logfileparser
+* count calls per domains
+* count calls per file
 ### open
-Updating logfile at the right moment
+* show domain highlights
+* show file highlights
+* Updating logfile at the right moment
 
 ## RSSfeed reader
 ### done

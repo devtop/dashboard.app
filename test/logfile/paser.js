@@ -5,17 +5,24 @@ var expect = chai.expect
 describe('Parser ', function(){
   describe('hosts ', function(){
 
-    it('provides an valid Object', function(done){
+    it('provides an valid array', function(done){
       parser.hosts(function(hosts){
-        Object.keys(hosts)
+        expect(hosts).to.be.an.instanceof(Array)
         done()
       })
     })
 
     it('has at least one element', function(done){
       parser.hosts(function(hosts){
-        var element = hosts[Object.keys(hosts)[0]]
-        expect(element).not.to.be.undefined
+        expect(hosts).to.have.length.above(0)
+        done()
+      })
+    })
+
+    it('provides elements with domain and count key', function(done){
+      parser.hosts(function(hosts){
+        var element = hosts.pop()
+        expect(element).to.have.all.keys('domain', 'count')
         done()
       })
     })
@@ -24,15 +31,21 @@ describe('Parser ', function(){
 
     it('provides an valid Object', function(done){
       parser.files(function(files){
-        Object.keys(files)
+        expect(files).to.be.an.instanceof(Array)
         done()
       })
     })
 
     it('has at least one element', function(done){
       parser.files(function(files){
-        var element = files[Object.keys(files)[0]]
-        expect(element).not.to.be.undefined
+        expect(files).to.have.length.above(0)
+        done()
+      })
+    })
+    it('provides elements with file and count key', function(done){
+      parser.files(function(files){
+        var element = files.pop()
+        expect(element).to.have.all.keys('file', 'count')
         done()
       })
     })

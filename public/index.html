@@ -20,7 +20,16 @@
    <div class="tab-content">
      <div role="tabpanel" class="tab-pane active" id="logfile">
        <div  ng-controller="LogfileCtrl" class="container">
-         Some Content
+         <table>
+           <tr>
+             <th>Domain</th>
+             <th>Count</th>
+           </tr>
+           <tr>
+             <td>{domain}</td>
+             <td>{count}</td>
+           </td>
+         </table>
        </div>
      </div>
      <div role="tabpanel" class="tab-pane" id="rss_feed">RSS-Feed</div>

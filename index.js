@@ -1,4 +1,7 @@
 (function (exports){
+  var loader = require('./lib/logfile/loader.js')
+  loader.refresh(function(){})
+
   var express = require('express')
   var server = exports.server = express()
 
@@ -6,7 +9,7 @@
 
   server.get('/logfile/highlights.json', function (req, res) {
     console.log('requested logfile/highlights')
-    res.json({}) 
+    res.json({})
   })
 
   server.listen(3005)

@@ -20,10 +20,21 @@ describe('GET /logfile/domainstats.json', function(){
       .expect(200, done)
   })
 })
+
 describe('GET /logfile/filestats.json', function(){
   it('respond with json', function(done){
     request(server)
       .get('/logfile/filestats.json')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, done)
+  })
+})
+
+describe('GET /jsonfeed.json', function(){
+  it('respond with json', function(done){
+    request(server)
+      .get('/jsonfeed.json')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)

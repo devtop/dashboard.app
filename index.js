@@ -23,5 +23,11 @@
     })
   })
 
+  server.get('/jsonfeed.json', function (req, res) {
+    var request = require('request')
+    var url = 'http://rexxars.com/playground/testfeed/'
+    req.pipe(request(url)).pipe(res)
+  })
+
   server.listen(3005)
 })(this)

@@ -44,16 +44,26 @@
      </div>
      <div role="tabpanel" class="tab-pane" id="rss_feed">
        <div class="row-fluid" ng-controller="RssfeedCtrl">
-        <ul class="unstyled">
+         <ul class="unstyled">
           <li ng-repeat="feed in feeds | filter:filterText">
             <h5><a href="{{feed.link}}">{{feed.title}}</a></h5>
             <p class="text-left">{{feed.contentSnippet}}</p>
             <span class="small">{{feed.publishedDate}}</span>
           </li>
-        </ul>
-      </div>
+         </ul>
+       </div>
      </div>
-     <div role="tabpanel" class="tab-pane" id="json_feed">JSON-Feed</div>
+     <div role="tabpanel" class="tab-pane" id="json_feed">
+       <div class="row-fluid" ng-controller="JsonfeedCtrl">
+         <ul class="unstyled">
+          <li ng-repeat="feed in feeds | filter:filterText">
+            <h5><a href="{{feed.link}}">{{feed.title}}</a></h5>
+            <p class="text-left">{{feed.description}}</p>
+            <span class="small">{{feed.date}} {{feed.time}}</span>
+          </li>
+         </ul>
+       </div>
+     </div>
    </div>
 </div>
 

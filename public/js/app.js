@@ -18,13 +18,14 @@ function LogfileCtrl($scope, $http) {
   refresh();
 }
 
-App.controller('RssfeedCtrl', ["$scope", "FeedService", RssfeedCtrl]);
+App.controller('RssfeedCtrl', ["$scope", "RssfeedService", RssfeedCtrl]);
 
-function RssfeedCtrl($scope, FeedService) {
-  var vg = 'http://www.vg.no/rss/nyfront.php?frontId=1';
-  $scope.loadButonText = "Load";
-  function loadFeed(url) {
-    FeedService.parseFeed(url).then(function (res) {
+function RssfeedCtrl($scope, RssfeedService) {
+  console.log("RssfeedCtrl is in charge");
+  var feedUrl = 'http://www.vg.no/rss/nyfront.php?frontId=1';
+  var loadFeed = function(url) {
+    RssfeedService.parseFeed(url).then(function (res) {
+      console.log("I got the rssfeed data I requested");
       $scope.feeds = res.data.responseData.feed.entries;
       $scope.feeds.sort(function (a,b){
         a = new Date(a.publishedDate);
@@ -34,16 +35,30 @@ function RssfeedCtrl($scope, FeedService) {
         if (a > b)
           return -1;
         return 0;
-      })
+      });
     });
   }
-  loadFeed(vg);
+  loadFeed(feedUrl);
+}
+
+App.controller('JsonfeedCtrl', ["$scope", "$http", JsonfeedCtrl]);
+function JsonfeedCtrl($scope, $http) {
+  console.log("JsonfeedCtrl is in charge");
+  var feedUrl = '/jsonfeed.json';
+
+  var loadFeed = function(url) {
+    $http.get(url).success(function (res) {
+      console.log("I got the jsonfeed data I requested");
+      $scope.feeds = res;
+    });
+  };
+  loadFeed(feedUrl);
 }
 
 
-App.factory('FeedService', ['$http', FeedService]);
+App.factory('RssfeedService', ['$http', RssfeedService]);
 
-function FeedService($http) {
+function RssfeedService($http) {
   return {
     parseFeed: function (url) {
       return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));

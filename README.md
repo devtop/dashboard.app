@@ -8,11 +8,12 @@ Yet another little dashboard
 * setup testwatcher
 * setup continuous integration
 * logfile download for test-preparation
+* front end nicer
+* docker preparation (logfile download)
 ### open
 * write Dockerfile
 * centralize config
 * add some comments
-* front end nicer
 * test front end js
 * promises for async back end parts
 
@@ -23,16 +24,17 @@ Yet another little dashboard
 * count calls per file
 * show domain highlights
 * show file highlights
-### open
 * Updating logfile at the right moment
+### open
 
 ## RSSfeed reader
 ### done
 * consume feed
 * show feed
 * order by date desc
-### open
 * beautify date
+### open
+* funny time, missing zeros
 
 ## JSONfeed reader
 ### done

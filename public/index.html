@@ -11,7 +11,7 @@
   <h1>Yet Another Dashboard</h1>
   <!-- Nav tabs -->
    <ul class="nav nav-tabs" role="tablist">
-     <li role="presentation" class="active"><a href="#logfile" aria-controls="logfile" role="tab" data-toggle="tab">Logfile</a></li>
+     <li role="presentation" class="active"><a href="#logfile" aria-controls="logfile" role="tab" data-toggle="tab">Analyze logfile</a></li>
      <li role="presentation"><a href="#rss_feed" aria-controls="rss_feed" role="tab" data-toggle="tab">RSS-Feed</a></li>
      <li role="presentation"><a href="#json_feed" aria-controls="json_feed" role="tab" data-toggle="tab">JSON-Feed</a></li>
    </ul>
@@ -20,17 +20,21 @@
    <div class="tab-content">
      <div role="tabpanel" class="tab-pane active" id="logfile">
        <div ng-controller="LogfileCtrl" class="container">
-         <table>
-           <tr>
-             <th>Domain</th>
-             <th>Count</th>
-           </tr>
-           <tr ng-repeat="stat in domainstats">
-             <td>{{stat.domain}}</td>
-             <td>{{stat.count}}</td>
-           </tr>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Domain</th>
+               <th>Count</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat="stat in domainstats">
+               <td>{{stat.domain}}</td>
+               <td>{{stat.count}}</td>
+             </tr>
+           </tbody>
          </table>
-         <table>
+         <table class="table">
            <tr>
              <th>File</th>
              <th>Count</th>
@@ -46,8 +50,7 @@
        <div class="row-fluid" ng-controller="RssfeedCtrl">
          <ul class="unstyled">
           <li ng-repeat="feed in feeds | filter:filterText">
-            <h5><a href="{{feed.link}}">{{feed.title}}</a></h5>
-            <p class="text-left">{{feed.contentSnippet}}</p>
+            <h5><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h5>
             <span class="small">{{feed.publishedDate}}</span>
           </li>
          </ul>
@@ -57,7 +60,7 @@
        <div class="row-fluid" ng-controller="JsonfeedCtrl">
          <ul class="unstyled">
           <li ng-repeat="feed in feeds | filter:filterText">
-            <h5><a href="{{feed.link}}">{{feed.title}}</a></h5>
+            <h5><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h5>
             <p class="text-left">{{feed.description}}</p>
             <span class="small">{{feed.date}} {{feed.time}}</span>
           </li>

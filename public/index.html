@@ -18,6 +18,8 @@
 
    <!-- Tab panes -->
    <div class="tab-content">
+
+     <!-- logfile Tab -->
      <div role="tabpanel" class="tab-pane active" id="logfile">
        <div ng-controller="LogfileCtrl" class="container">
          <table class="table">
@@ -46,6 +48,8 @@
          </table>
        </div>
      </div>
+
+     <!-- rssfeed Tab -->
      <div role="tabpanel" class="tab-pane" id="rss_feed">
        <div class="row-fluid" ng-controller="RssfeedCtrl">
          <ul class="unstyled">
@@ -56,13 +60,15 @@
          </ul>
        </div>
      </div>
+
+     <!-- jsonfeed Tab -->
      <div role="tabpanel" class="tab-pane" id="json_feed">
        <div class="row-fluid" ng-controller="JsonfeedCtrl">
          <ul class="unstyled">
           <li ng-repeat="feed in feeds | filter:filterText">
             <h5><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></h5>
             <p class="text-left">{{feed.description}}</p>
-            <span class="small">{{feed.date}} {{feed.time}}</span>
+            <span class="small">{{feed.publishedDate}}</span>
           </li>
          </ul>
        </div>

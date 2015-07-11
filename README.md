@@ -3,6 +3,20 @@ Yet another little dashboard
 
 [ ![Codeship Status for devtop/dashboard.app](https://codeship.com/projects/ddd59e10-0973-0133-a4c9-521d3b82cdba/status?branch=master)](https://codeship.com/projects/90596)
 
+## General
+### done
+* setup testwatcher
+* setup continuous integration
+* logfile download for test-preparation
+### open
+* write Dockerfile
+* centralize config
+* add some comments
+* front end nicer
+* test front end js
+* promises for async back end parts
+
+
 ## Logfile analysis
 ### done
 * count calls per domains
@@ -27,10 +41,3 @@ Yet another little dashboard
 * show feed
 * oder by date desc
 ### open
-
-## Projecc
-### done
-* setup testwatcher
-* setup continuous integration
-### open
-* write Dockerfile

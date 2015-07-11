@@ -4,7 +4,7 @@
   "description": "Yet another little dashboard",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive"
+    "test": "node prepare.js; ./node_modules/.bin/mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "^4.13.1",
     "line-reader": "^0.2.4",
+    "promise": "^7.0.3",
     "request": "^2.58.0"
   }
 }

@@ -1,6 +1,4 @@
 (function (exports){
-  var loader = require('./lib/logfile/loader.js')
-  loader.refresh(function(){})
   var parser = require('./lib/logfile/parser.js')
 
   var express = require('express')
